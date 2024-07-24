@@ -17,25 +17,32 @@
 
 
 def calcularImc(peso, altura):
-    float(peso)
-    float(altura)
+    p = float(peso)
+    a = float(altura)
 
-    imc = float(f'{peso / (altura**2):.2f}')
+    imc = float(p / (a**2))
+    total = round(imc, 2)
+    return total
 
-    if(imc < 18.5):
+def classificarImc(i):
+    if(i < 18.5):
         r = 'Baixo peso'
-    elif(imc < 24.9):
+    elif(i < 24.9):
         r = 'Eutrofia'
-    elif(imc < 29.9):
+    elif(i < 29.9):
         r = 'Sobrepeso'
-    elif(imc < 34.9):
+    elif(i < 34.9):
         r = 'Obesidade Grau I'
-    elif(imc < 39.9):
+    elif(i < 39.9):
         r = 'Obesidade Grau II'
     else:
         r = 'Obesidade Grau III'
+    return r
 
-    print(imc)
-    print(r)
 
-calcularImc(75, 1.84)
+p = input('Informe o Peso: ')
+a = input('Informe a altura: ')
+
+calc = calcularImc(p, a)
+
+print(f' O Calculo de IMC é: {calc}\n A Classificação de IMC é: {classificarImc(calc)}')
